@@ -58,10 +58,24 @@ public class Bank {
 		String b = "bill nye";
 		String c = "pueeellllooo";
 		double d = 100.00;
+		String z1 = "checking";
+		String b1 = "bill nye";
+		String c1 = "pueeellllooo";
+		double d1 = 100.00;
+		String z11 = "retail";
+		String b11 = "bill nye";
+		String c11 = "pueeellllooo";
+		double d11 = 100.00;
 		Account a = new Account(z,b,c,d);
+		Account s = new SavingsAccount(z1,b1,c1,d1);
+		Account s1 = new CheckingAccount(z1,b1,c1,d1);
+		Account bus = new RetailAccount(z11,b11,c11,"cool shit",d11);
+		Account real = new RetailAccount(z11,b11,c11,"cool shit",d11);
+		Account loan = new LoanAccount(z11,b11,c11,d11,.20);
 		accounts.add(a);
+		accounts.add(s);
 		
-		System.out.println(a);
+		System.out.println(loan);
 	}
 	
 	

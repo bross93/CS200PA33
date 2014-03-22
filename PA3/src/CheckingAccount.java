@@ -1,20 +1,10 @@
 
-public class CheckingAccount extends Account {
-	public String type;
-	public String name;
-	public String city;
-	public double balance;
+public class CheckingAccount extends PersonalAccount {
+	
 
-
-	public CheckingAccount(String t, String n, String c, double d){
-		super(t,n,c,d);	
-		
-	}	
-	
-	
-	
-	public String toString(){
-		return null;	
-}
+	public CheckingAccount(String t, String n, String c, double d) {
+		super(t, n, c, d);
+		// TODO Auto-generated constructor stub
+	}
 	
 }

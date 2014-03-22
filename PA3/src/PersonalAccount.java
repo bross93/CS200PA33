@@ -12,6 +12,6 @@ public class PersonalAccount extends Account{
 	}	
 	
 	public String toString(){
-		return null;	
+		return super.toString();	
 }
 }

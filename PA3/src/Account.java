@@ -4,21 +4,26 @@ public String type;
 public String name;
 public String city;
 public double balance;
+public double intRate;
+public boolean loan = false;
 
 
 @Override
 public String toString() {
-	return "Account [type=" + type + ", name=" + name + ", city=" + city
-			+ ", balance=" + balance + "]";
+	
+	return String.format("\t %18s:    %20s   %15s  %10.2f\n",type,name,city,balance);
+	
 }
 
 public Account(String t, String n, String c, double d){
-	setType(t);
-	setName(n);
-	setCity(c);
-	setBalance(d);
+	this.type = t;
+	this.name = n;
+	this.city = c;
+	this.balance = d;
 	
 }
+
+
 
 
 @Override
@@ -26,25 +31,5 @@ public int compareTo(Account blah) {
 	// TODO Auto-generated method stub
 	return 0;
 }
-
-public void setType(String _type){
-	type = _type;
-}
-
-public void setName(String _name){
-	name= _name;
-}
-
-public void setCity(String _city){
-	city = _city;
-}
-
-public void setBalance(double _balance){
-	balance = _balance;
-}
-
-
-
-
 
 }

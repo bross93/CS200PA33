@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class BankApp {
 
@@ -21,6 +24,33 @@ To sort your ArrayList<Account> accounts, use
 Collections.sort(accounts) if no sort method has been specified, or
 Collections.sort(accounts,comparator) if a sort method had been specified.
 	 */
+	
+	
+	public static void main(String args[]){
+		
+		String newChecking = "new checking";
+		String name,city,businessType,type;
+		double balance, interest;
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Bank:");
+		System.out.println("Enter command: ");
+		String command = keyboard.nextLine();
+		
+		if(command.equalsIgnoreCase(newChecking));{
+			ArrayList<Account> accounts = new ArrayList<Account>();
+			type = "checking";
+			System.out.println(" Enter the name: ");
+			name = keyboard.nextLine();
+			System.out.println(" Enter the city: ");
+			city = keyboard.nextLine();
+			System.out.println(" Enter the initial balance: ");
+			balance = keyboard.nextDouble();
+			Account check = new CheckingAccount(type,name,city,balance);
+			accounts.add(check);
+			accounts.add(check);
+			System.out.println(accounts);
+		}
+	}
 	
 	
 }
