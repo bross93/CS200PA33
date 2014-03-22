@@ -7,7 +7,8 @@ public class Bank {
 	ArrayList<Account> accounts = new ArrayList<Account>();
 	
 	void add(Account account){
-		
+		accounts.add(account);
+		_size++;
 	}
 	
 	int size(){
@@ -15,11 +16,21 @@ public class Bank {
 	}
 	
 	Account find(String account){
-		return null;		
+		for (int i = 0; i< _size; i++){
+		       Account current = accounts.get(i);
+		            if (current.name.contains(account)){
+		             return current;
+		             
+		}else{
+			return null;
+		}
+		}
+		return null;
 	}
 	
 	void addToBalance(String string, double amount){
-		
+		Account toAdd = find("string");
+			toAdd.balance = amount;
 	}
 	
 	//Name, city, and balance assign the comparater memeber variable to be an instance of an appropriate class that implements Comparator<Account>
@@ -38,6 +49,21 @@ public class Bank {
 	void sortByType(boolean type){
 		//Sets comparater to comparaterbytype
 	}
+	
+	
+	public static void main(String args[]){
+
+		ArrayList<Account> accounts = new ArrayList<Account>();
+		String z = "checking";
+		String b = "bill nye";
+		String c = "pueeellllooo";
+		double d = 100.00;
+		Account a = new Account(z,b,c,d);
+		accounts.add(a);
+		
+		System.out.println(a);
+	}
+	
 	
 	
 }
