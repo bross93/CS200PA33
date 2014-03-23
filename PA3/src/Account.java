@@ -3,9 +3,11 @@ public class Account implements Comparable<Account> {
 public String type;
 public String name;
 public String city;
+public int size;
 public double balance;
 public double intRate;
 public boolean loan = false;
+
 
 
 @Override
@@ -29,7 +31,17 @@ public Account(String t, String n, String c, double d){
 @Override
 public int compareTo(Account blah) {
 	// TODO Auto-generated method stub
-	return 0;
+	return name.compareTo(blah.name);
+}
+
+public int size() {
+	// TODO Auto-generated method stub
+	return size;
+}
+
+public void addSize() {
+	// TODO Auto-generated method stub
+	size++;
 }
 
 }

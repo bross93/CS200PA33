@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 
@@ -27,29 +28,153 @@ Collections.sort(accounts,comparator) if a sort method had been specified.
 	
 	
 	public static void main(String args[]){
-		
+		ArrayList<Account> accounts = new ArrayList<Account>();
 		String newChecking = "new checking";
 		String name,city,businessType,type;
 		double balance, interest;
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Bank:");
-		System.out.println("Enter command: ");
-		String command = keyboard.nextLine();
 		
-		if(command.equalsIgnoreCase(newChecking));{
-			ArrayList<Account> accounts = new ArrayList<Account>();
-			type = "checking";
-			System.out.println(" Enter the name: ");
-			name = keyboard.nextLine();
-			System.out.println(" Enter the city: ");
-			city = keyboard.nextLine();
-			System.out.println(" Enter the initial balance: ");
-			balance = keyboard.nextDouble();
-			Account check = new CheckingAccount(type,name,city,balance);
-			accounts.add(check);
-			accounts.add(check);
-			System.out.println(accounts);
-		}
+		
+		boolean exit = false;
+		
+		while(!exit){
+			System.out.print("Enter command: ");
+			String command = keyboard.nextLine();
+			
+			if(command.equalsIgnoreCase(newChecking)){
+				type = "checking";
+				System.out.println(" Enter the name: ");
+				name = keyboard.nextLine();
+				System.out.println(" Enter the city: ");
+				city = keyboard.nextLine();
+				System.out.println(" Enter the initial balance: ");
+				balance = keyboard.nextDouble();
+				Account check = new CheckingAccount(type,name,city,balance);
+				accounts.add(check);
+				
+				
+				//System.out.println(accounts);
+			}
+			
+			else if(command.equalsIgnoreCase("new savings")){
+				type = "savings";
+				System.out.println(" Enter the name: ");
+				name = keyboard.nextLine();
+				System.out.println(" Enter the city: ");
+				city = keyboard.nextLine();
+				System.out.println(" Enter the initial balance: ");
+				balance = keyboard.nextDouble();
+				Account check = new SavingsAccount(type,name,city,balance);
+				accounts.add(check);
+				
+			}
+			
+			else if(command.equalsIgnoreCase("new retail")){
+				String typee;
+				type = "retail";
+				System.out.print(" Enter the name: ");
+				name = keyboard.nextLine();
+				System.out.print(" Enter the city: ");
+				city = keyboard.nextLine();
+				System.out.print(" Enter the initial balance: ");
+				balance = keyboard.nextDouble();
+				System.out.print(" Enter the business type: ");
+				typee = keyboard.next();
+				Account check = new RetailAccount(type,name,city, typee, balance);
+				accounts.add(check);
+				
+			}
+			
+			else if(command.equalsIgnoreCase("new realestate")){
+				String typee;
+				type = "realestate";
+				System.out.print(" Enter the name: ");
+				name = keyboard.nextLine();
+				System.out.print(" Enter the city: ");
+				city = keyboard.nextLine();
+				System.out.print(" Enter the initial balance: ");
+				balance = keyboard.nextDouble();
+				System.out.print(" Enter the business type: ");
+				typee = keyboard.next();
+				Account check = new RealestateAccount(type,name,city, typee, balance);
+				accounts.add(check);
+				
+			}
+			
+			else if(command.equalsIgnoreCase("new loan")){
+				String typee;
+				type = "realestate";
+				System.out.print(" Enter the name: ");
+				name = keyboard.nextLine();
+				System.out.print(" Enter the city: ");
+				city = keyboard.nextLine();
+				System.out.print(" Enter the initial balance: ");
+				balance = keyboard.nextDouble();
+				System.out.print(" Enter the interest rate: ");
+				interest = keyboard.nextDouble();
+				Account check = new LoanAccount(type,name,city, balance,interest);
+				accounts.add(check);
+				
+			}
+			
+			else if(command.equalsIgnoreCase("help")){
+				
+				System.out.println(" Valid commands are");
+				System.out.print("  new checking\n  new savings\n  new loan\n  new retail\n  new realestate\n  fnd\n  add\n  sort name\n  sort city\n  sort balance\n  sort type\n  sort notype\n  show\n  quit\n");
+				
+				
+			}
+			
+			
+			else if(command.equalsIgnoreCase("sort name")){
+				
+				Collections.sort(accounts);
+				
+				
+			}
+			
+			else if(command.equalsIgnoreCase("sort city")){
+				
+				Collections.sort(accounts,new CompareByCity());
+				
+				
+			}
+			
+				else if(command.equalsIgnoreCase("sort balance")){
+				
+				Collections.sort(accounts,new CompareByBalance());
+				
+				
+			}
+			
+				else if(command.equalsIgnoreCase("sort type")){
+					
+					Collections.sort(accounts,new CompareByType());
+					
+					
+				}
+			
+			else if(command.equalsIgnoreCase("show")){				
+				System.out.println("Bank:");
+				System.out.println(accounts);
+			}
+			
+			else if(command.equalsIgnoreCase("quit")){				
+				exit = true;
+				System.exit(0);
+			}
+			
+			else{
+				
+				System.out.println(" Valid commands are");
+				System.out.print("  new checking\n  new savings\n  new loan\n  new retail\n  new realestate\n  fnd\n  add\n  sort name\n  sort city\n  sort balance\n  sort type\n  sort notype\n  show\n  quit\n");
+				
+				
+			}
+			
+	}
+		
 	}
 	
 	

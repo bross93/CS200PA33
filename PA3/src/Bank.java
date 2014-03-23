@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Bank {
@@ -15,31 +16,30 @@ public class Bank {
 		return _size;
 	}
 	
-	Account find(String account){
-		for (int i = 0; i< _size; i++){
-		       Account current = accounts.get(i);
-		            if (current.name.contains(account)){
-		             return current;
-		             
-		}else{
-			return null;
-		}
-		}
-		return null;
+	public static Account find(String value, ArrayList <Account> account) {
+		ArrayList<Account> foundAccounts = new ArrayList<Account>();
+	    for (int i = 0; i <account.size();i++) {
+	        if (account.get(i).name.equals(value)) {
+	           foundAccounts.add(account.get(i));
+	        }
+	    }
+
+	    return null;
 	}
 	
 	void addToBalance(String string, double amount){
 		Account toAdd = find("string");
-			toAdd.balance = amount;
+			toAdd.balance += amount;
 	}
 	
 	//Name, city, and balance assign the comparater memeber variable to be an instance of an appropriate class that implements Comparator<Account>
 	void sortByName(){
 		//Sets sorting method to by name, sets comparator
+		Collections.sort(accounts);
 	}
 	
 	void sortByCity(){
-		//Sets comparater to city, duhhhhhh
+		
 	}
 	
 	void sortByBalance(){
@@ -52,7 +52,7 @@ public class Bank {
 	
 	
 	public static void main(String args[]){
-
+/**
 		ArrayList<Account> accounts = new ArrayList<Account>();
 		String z = "checking";
 		String b = "bill nye";
@@ -76,6 +76,8 @@ public class Bank {
 		accounts.add(s);
 		
 		System.out.println(loan);
+		
+		**/
 	}
 	
 	
