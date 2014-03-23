@@ -16,20 +16,20 @@ public class Bank {
 		return _size;
 	}
 	
-	public static Account find(String value, ArrayList <Account> account) {
+	public ArrayList<Account> find(String value, ArrayList <Account> account) {
 		ArrayList<Account> foundAccounts = new ArrayList<Account>();
 	    for (int i = 0; i <account.size();i++) {
 	        if (account.get(i).name.equals(value)) {
 	           foundAccounts.add(account.get(i));
 	        }
+	        return foundAccounts;
 	    }
 
 	    return null;
 	}
 	
 	void addToBalance(String string, double amount){
-		Account toAdd = find("string");
-			toAdd.balance += amount;
+		
 	}
 	
 	//Name, city, and balance assign the comparater memeber variable to be an instance of an appropriate class that implements Comparator<Account>

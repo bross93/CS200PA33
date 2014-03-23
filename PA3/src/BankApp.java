@@ -42,13 +42,13 @@ Collections.sort(accounts,comparator) if a sort method had been specified.
 			System.out.print("Enter command: ");
 			String command = keyboard.nextLine();
 			
-			if(command.equalsIgnoreCase(newChecking)){
+			if(command.equalsIgnoreCase("new checking")){
 				type = "checking";
-				System.out.println(" Enter the name: ");
+				System.out.print(" Enter the name: ");
 				name = keyboard.nextLine();
-				System.out.println(" Enter the city: ");
+				System.out.print(" Enter the city: ");
 				city = keyboard.nextLine();
-				System.out.println(" Enter the initial balance: ");
+				System.out.print(" Enter the initial balance: ");
 				balance = keyboard.nextDouble();
 				Account check = new CheckingAccount(type,name,city,balance);
 				accounts.add(check);
@@ -59,11 +59,11 @@ Collections.sort(accounts,comparator) if a sort method had been specified.
 			
 			else if(command.equalsIgnoreCase("new savings")){
 				type = "savings";
-				System.out.println(" Enter the name: ");
+				System.out.print(" Enter the name: ");
 				name = keyboard.nextLine();
-				System.out.println(" Enter the city: ");
+				System.out.print(" Enter the city: ");
 				city = keyboard.nextLine();
-				System.out.println(" Enter the initial balance: ");
+				System.out.print(" Enter the initial balance: ");
 				balance = keyboard.nextDouble();
 				Account check = new SavingsAccount(type,name,city,balance);
 				accounts.add(check);
@@ -157,14 +157,29 @@ Collections.sort(accounts,comparator) if a sort method had been specified.
 			
 			else if(command.equalsIgnoreCase("show")){				
 				System.out.println("Bank:");
-				System.out.println(accounts);
+				String asString = accounts.toString().replaceAll("^\\[", "").replaceAll("\\]$", "").replace(",", "");
+				System.out.println(asString);
+				//System.out.println(accounts.toString().substring(1,accounts.toString().length()-1));
+			}
+			
+			else if(command.equalsIgnoreCase("find")){				
+				Bank bank = new Bank();
+				System.out.print("Enter the name: ");
+				String searchName = keyboard.nextLine();
+				ArrayList<Account> foundAccounts = new ArrayList<Account>();
+				foundAccounts = bank.find(searchName, accounts);
+				String formatted = foundAccounts.toString();
+				formatted.replace('[', ' ');
+				formatted.replace(',', ' ');
+				formatted.replace(']', ' ');
+				System.out.println(formatted.substring(1,formatted.length()-1));
 			}
 			
 			else if(command.equalsIgnoreCase("quit")){				
 				exit = true;
 				System.exit(0);
 			}
-			
+			/**
 			else{
 				
 				System.out.println(" Valid commands are");
@@ -173,6 +188,8 @@ Collections.sort(accounts,comparator) if a sort method had been specified.
 				
 			}
 			
+			
+			**/
 	}
 		
 	}
