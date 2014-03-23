@@ -83,6 +83,7 @@ Collections.sort(accounts,comparator) if a sort method had been specified.
 				typee = keyboard.next();
 				Account check = new RetailAccount(type,name,city, typee, balance);
 				accounts.add(check);
+				//Exceptions, help command, wtf
 				
 			}
 			
